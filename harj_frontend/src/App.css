@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #1f2933;
+}
+
+.app {
+  min-height: 100vh;
+  width: min(1200px, 100% - 3rem);
+  margin: 0 auto;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.app h1 {
+  margin-top: 0;
+}
+
+form {
+  width: 100%;
+}
+
+.content-layout {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) minmax(0, 2fr);
+  gap: 3rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.filter-section,
+.cars-section {
+  min-width: 0;
+}
+
+.cars-section {
+  text-align: center;
+}
+
+.filter-section h2,
+.cars-section h2 {
+  text-align: center;
+}
+
+.form-fields {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: center;
+}
+
+input {
+  width: 12rem;
+  padding: 0.6rem;
+  align-self: center;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  border: 0;
+  border-radius: 4px;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+.delete-button {
+  padding: 0.2rem 0.5rem;
+  border: 0;
+  border-radius: 4px;
+  background-color: #eb2525;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.delete-button:hover {
+  background-color: #d81d1d;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+  width: 100%;
+  margin-top: 0;
+  text-align: left;
+  padding: 0;
+}
+
+li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4.5rem;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #c7cdd4;
+  border-radius: 4px;
+  background-color: white;
+  list-style: none;
+}
+
+li span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .form-fields {
+    flex-wrap: wrap;
+  }
+
+  .content-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  li {
+    grid-template-columns: minmax(0, 1fr) 4rem;
+  }
+}
