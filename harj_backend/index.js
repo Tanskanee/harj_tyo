@@ -37,7 +37,7 @@ app.get('/api/cars/:id', (request, response) => {
   const car = cars.find(car => car.id === Number(request.params.id))
 
   if (!car) {
-    return response.status(404).json({ error: 'Car not found' })
+    return response.status(404).json({ error: 'Autoa ei löytynyt' })
   }
 
   response.json(car)
@@ -48,7 +48,7 @@ app.post('/api/cars', (request, response) => {
 
   if (!brand?.trim() || !model?.trim() || !Number.isInteger(year)) {
     return response.status(400).json({
-      error: 'Brand, model, and a numeric year are required'
+      error: 'Merkki, malli ja kelvollinen vuosi ovat pakollisia'
     })
   }
 
@@ -58,7 +58,7 @@ app.post('/api/cars', (request, response) => {
   )
 
   if (existingCar) {
-    return response.status(409).json({ error: 'Car already exists' })
+    return response.status(409).json({ error: 'Auto on jo olemassa' })
   }
   const nextId = cars.length > 0 ? Math.max(...cars.map(car => car.id)) + 1 : 1
 
@@ -81,12 +81,12 @@ app.put('/api/cars/:id', (request, response) => {
   const car = cars.find(car => car.id === id)
 
   if (!car) {
-    return response.status(404).json({ error: 'Car not found' })
+    return response.status(404).json({ error: 'Autoa ei löytynyt' })
   }
 
   if (!brand?.trim() || !model?.trim() || !Number.isInteger(year)) {
     return response.status(400).json({
-      error: 'Brand, model, and a numeric year are required'
+      error: 'Merkki, malli ja kelvollinen vuosi ovat pakollisia'
     })
   }
 
@@ -107,7 +107,7 @@ app.delete('/api/cars/:id', (request, response) => {
   const carExists = cars.some(car => car.id === id)
 
   if (!carExists) {
-    return response.status(404).json({ error: 'Car not found' })
+    return response.status(404).json({ error: 'Autoa ei löytynyt' })
   }
 
   cars = cars.filter(car => car.id !== id)
